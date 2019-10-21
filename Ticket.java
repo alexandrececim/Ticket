@@ -1,5 +1,12 @@
 import java.util.ArrayList;
-
+/**
+ * Classe para gerar Objeto Ticket
+ * Está ainda é uma versão de teste, onde os metodos get() e set() de vada 
+ * variavel está publica para uso do Teste Unitário.
+ * 
+ * @version 1.0
+ * @author Carlos Alexandre de Souza Cecim
+ */
 public class Ticket{
 
  private String ticketNormal;
@@ -27,7 +34,11 @@ public String getTicketPreferencial(){
  private void setStatusAtendimento(int x){
   statusAtendimento = x;
  }
-//Metodo que adiciona o ticket na fila Normal
+/**
+ * Metodo que adiciona o ticket na fila Normal
+ * gerar uma senha(ticket) no formato 'NXXXX' 
+ * para usuario normal (Onde cada 'X' é um digito numérico).
+ */
  public void addFilaNormal(ArrayList<Ticket> fila){
   Ticket ticket = new Ticket();
   int totalFila = fila.size() + 1;//Adicionado evitando o 'N0000'
@@ -37,7 +48,11 @@ public String getTicketPreferencial(){
   fila.add(ticket);
  }
 
-//Metodo que adiciona o ticket na fila Preferencial
+/**
+ * Metodo que adiciona o ticket na fila Preferencial
+ * gerar uma senha(ticket) no formato 'PXXXX' para usuario 
+ * Preferencial (Onde cada 'X' é um digito numérico).
+ */
 public void addFilaPreferencial(ArrayList<Ticket> fila){
   Ticket ticket = new Ticket();
   int totalFila = fila.size() + 1;//Adicionado evitando $
@@ -46,7 +61,12 @@ public void addFilaPreferencial(ArrayList<Ticket> fila){
   ticket.setStatusAtendimento(0);
   fila.add(ticket);
  } 
-
+/**
+ * Esse metodo é onde se aplica a regra de negocio:
+ * O sistema terá que atender somente uma senha de 
+ * usuario normal depois que todos os usuarios 
+ * Preferenciais estiverem sido atendidos.
+ */
  public void atendeFila(ArrayList<Ticket> fila){
   int tamanhoFila = fila.size();
   int contaFila = 0;

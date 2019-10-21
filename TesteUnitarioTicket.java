@@ -1,6 +1,23 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * Teste Unitario para classe Ticket (Ticket.java)
+ * Deve testa:  
+ * 1) O sistema deve controlar uma fila de banco com acesso a dois 
+ * tipos de usuários, são eles: Normal e Preferencial.
+ * 
+ * 2) O sistema deve gerar uma senha(ticket) no formato 'NXXXX' para 
+ * usuario normal e 'PXXXX' para usuario Preferencial (Onde cada 'X' 
+ * é um digito numérico).
+ * 
+ * 3) O sistema terá que atender somente uma senha de usuario normal 
+ * depois que todos os usuarios Preferenciais estiverem sido atendidos.
+ * 
+ * @version 1.0
+ * @author Carlos Alexandre de Souza Cecim
+ */
+
 public class TesteUnitarioTicket{
 
 
@@ -11,6 +28,13 @@ public class TesteUnitarioTicket{
   
   do {
    Ticket ticket = new Ticket();
+   System.out.println("################ Comandos ################");
+   System.out.println("add Tcket Normal:       Digite .... 1  ");
+   System.out.println("add Tcket Preferencial: Digite .... 2  ");
+   System.out.println("Visualizar Fila:        Digite .... *  ");
+   System.out.println("Atender Fila:           Digite .... #  ");
+   System.out.println("##########################################");
+
    System.out.println("Adicinar na fila: ");
    
    foi = digitado.nextLine();
@@ -31,30 +55,10 @@ public class TesteUnitarioTicket{
     System.out.println("##### Altera Status #####");
     ticket.atendeFila(fila);
 
-/*    int xt = fila.size();
-    for(int i = 0; xt > i; i++){
-	if(fila.get(i).getStatusAtendimento() == 0){
-	 System.out.println("#"+
-		fila.get(i).getTicketNormal()+
-		" Atender ? s | n");
-	 String vai = digitado.nextLine();
-	 if(vai.equals("s")){
-	  //fila.get(i).setStatusAtendimento(1);
-      	 // ticket.atendeFilaNormal(fila);
 
-	  break;
-
-	 }else{continue;}
-	}
-         System.out.println("");
-    } */
     continue;
    } 
 
-   //System.out.println("Status: ");
-   //int st = Integer.parseInt(digitado.nextLine());
-   //ticket.setStatusAtendimento(st);
-   //fila.add(ticket);
 
   if(foi.equals("1")){
    ticket.addFilaNormal(fila);
@@ -66,9 +70,6 @@ public class TesteUnitarioTicket{
   }while (foi.trim().equals("-") == false);
 
    int xp = fila.size() - 1;
-  // System.out.println("******************");
-  // System.out.println("Tcket:  "+fila.get(0).getTicketNormal());
-  // System.out.println("Status: "+fila.get(0).getStatusAtendimento());
    System.out.println("******************");
    System.out.println("*Fim do Sistema*");
 
